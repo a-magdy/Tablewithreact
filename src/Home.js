@@ -1,51 +1,53 @@
-import React, {Component}from 'react';
-import ReactTable from 'react-table'
-import Content from './Content';
+import React, { Component } from "react";
+import ReactTable from "react-table";
+import Content from "./Content";
 
-class Home extends Component{
+class Home extends Component {
+  render() {
+    const uData2 = this.props.data;
 
-    render(){
-      
-        const uData2=this.props.data;
-        console.log(uData2)
-        return (
-            <div> 
+    console.log({ uData2 });
 
-                Hello you are Home!!
-                <ReactTable 
-          // data={uData2}
-          columns={[
-            {
-              Header: "User Details",
-              columns: [
+    return (
+      <div>
+        Hello you are Home!!
+        {
+          this.props.data &&
+            <ReactTable
+              data={uData2}
+              columns={[
                 {
-                  Header: "Name",
-                  accessor: "name"
-                },
-                {
-                  Header: "Username",
-                  id: "userName",
-                  accessor: d => d.username
-
-                },{
-                  Header: "Email",
-                  accessor: "email"
-                },{
-                  Header: "Phone",
-                  accessor: "phone"
-                },{
-                  Header: "Website",
-                  accessor: "website"
+                  Header: "User Details",
+                  columns: [
+                    {
+                      Header: "Name",
+                      accessor: "name"
+                    },
+                    {
+                      Header: "Username",
+                      id: "userName",
+                      accessor: d => d.username
+                    },
+                    {
+                      Header: "Email",
+                      accessor: "email"
+                    },
+                    {
+                      Header: "Phone",
+                      accessor: "phone"
+                    },
+                    {
+                      Header: "Website",
+                      accessor: "website"
+                    }
+                  ]
                 }
-              ]
-            }
-          ]}
-          
-          className="-striped -highlight"
-        />
-            </div>
-        );
-    }
-    
+              ]}
+              className="-striped -highlight"
+            />
+        }
+      </div>
+    );
+  }
 }
 export default Home;
