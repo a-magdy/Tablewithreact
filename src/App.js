@@ -16,10 +16,11 @@ class App extends Component {
       userData: null
     }
   }
+
   getUserData(){
     axios.get('https://jsonplaceholder.typicode.com/users/')
     .then(({ data }) => {
-            console.log(data);
+            console.log({data});
             this.setState(
                 { userData: data }
             );
@@ -31,14 +32,13 @@ class App extends Component {
   }
   componentDidMount() {
     this.getUserData()
-
 }
 
   render() {
-    
+    console.log({userData: this.state.userData})
+
     return (
       <div>
-        {console.log(this.state.userData)}
         <nav >
           <ul >
 
